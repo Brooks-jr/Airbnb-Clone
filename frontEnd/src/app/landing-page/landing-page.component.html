@@ -16,7 +16,7 @@
                 <div class="inner-addon right-addon">
                     <form class="form-inline my-2 my-lg-0">
                         <i class="glyphicon glyphicon-search"></i>
-                        <input id="where" class="form-control mr-sm-2" type="search" placeholder="Anywhere" aria-label="Search">
+                        <input id="search" name="searchBar" class="form-control mr-sm-2" type="text" placeholder="Anywhere" [(ngModel)]="searchStr">
                     </form>
                 </div>
             </div>
@@ -38,7 +38,7 @@
             
 
         </div>
-        <button id="newListing" [routerLink]="['/newListing']" *ngIf="curr" class="btn btn-info btn btn-danger">Become a host</button>
+        <button id="newListing" [routerLink]="['/newListing']" *ngIf="!curr" class="btn btn-info btn btn-danger">Become a host</button>
         <button [routerLink]="['/login']" id="logregbut" *ngIf="!curr" type="button" class="btn btn-info btn btn-danger" data-toggle="modal" data-target="#myModal">Sign Up | Login</button>
 
         
@@ -48,7 +48,19 @@
 <!-- ====================================================================================================== -->
 <!-- BODY -->
 <!-- ====================================================================================================== -->
-    
+  
+
+
+<!-- ==========================================================================
+FOR FILTERING LISTINGS
+<div class="listings" *ngFor="let l of allListings | filter:searchStr">
+
+
+</div>
+========================================================================= -->
+
+
+
     <div id="cards">
 
         <h1 class="sectionheader" >Where to stay</h1>

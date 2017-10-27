@@ -79,4 +79,13 @@ module.exports = {
             }
         });
     },
+
+    filter: (req, res, next) => {
+        Listing.find({$or: [ 
+            {'title': { '$regex': req.body.filterBy } }, 
+            { 'description': { '$regex': req.body.filterBy } } 
+        ]})
+        .then((listings) => { res.json(listings); })
+        .catch((err) => { res.status(488).json(err); });
+    }
 }
