@@ -8,6 +8,7 @@ var ListingSchema = new mongoose.Schema({
     price: { type: Number, required: true },
     amountBeds: { type: Number, required: true },
     rating: { type: Number },
+    image: {type: String},
     _host: { type: Schema.Types.ObjectId, ref: 'User' },
     _location: { type: Schema.Types.ObjectId, ref: 'Location' },
     conversations: [{ type: Schema.Types.ObjectId, ref: 'Message' }],

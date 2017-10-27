@@ -32,12 +32,14 @@ import { ListingPhotoComponent } from './listing/listing-photo/listing-photo.com
 import { ListingInstantBookComponent } from './listing/listing-instant-book/listing-instant-book.component';
 import { ListingInfoNavComponent } from './listing/listing-info-nav/listing-info-nav.component';
 import { ListingInfoComponent } from './listing/listing-info/listing-info.component';
+import { ListingCreateComponent } from './listing/listing-create/listing-create.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/landing', pathMatch: 'full' },
   { path: 'login', component: LogRegComponent },
   { path: 'test', component: InnerSearchComponent },
-  { path: 'dashboard', redirectTo: '/homes', pathMatch: 'full' }
+  { path: 'landing', component: LandingPageComponent },
+  { path: 'newListing', component: ListingCreateComponent }
 ];
 
 @NgModule({

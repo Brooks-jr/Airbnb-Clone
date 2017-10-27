@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
+var Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
 const UserSchema = new mongoose.Schema({
@@ -9,7 +10,7 @@ const UserSchema = new mongoose.Schema({
     password: {type: String},
     phone: {type: String, unique: true},
     userLevel: { type: Boolean },
-    conversations: [{ type: Schema.Types.ObjectId, ref: 'Message' }],
+    conversations: [{ type: Schema.Types.ObjectId, ref: 'Conversation' }],
     reservations: [{ type: Schema.Types.ObjectId, ref: 'Reservation' }],
     listings: [{ type: Schema.Types.ObjectId, ref: 'Listing' }],
     reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }],

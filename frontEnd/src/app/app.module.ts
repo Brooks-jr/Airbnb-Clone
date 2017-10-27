@@ -41,6 +41,7 @@ import { ListingInfoComponent } from './listing/listing-info/listing-info.compon
 import { GoogleApiService } from './google-api.service';
 import { LocalApiService } from './local-api.service';
 import { ApiService } from './api.service';
+import { ListingCreateComponent } from './listing/listing-create/listing-create.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { ApiService } from './api.service';
     ListingPhotoComponent,
     ListingInstantBookComponent,
     ListingInfoNavComponent,
-    ListingInfoComponent
+    ListingInfoComponent,
+    ListingCreateComponent
   ],
   imports: [
     BrowserModule,

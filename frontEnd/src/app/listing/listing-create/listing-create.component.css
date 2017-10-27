@@ -3,9 +3,36 @@
     height: 49px;
 }
 
-.modal-backdrop.fade.in
+#listingForm
 {
-    display: none;
+    padding: 200px;
+    padding-top: 30px;
+}
+
+#listingleft
+{
+    padding-left: 40px;
+}
+
+#listingformwelcome
+{
+    padding-bottom: 40px;
+}
+
+#listingSide
+{
+    width: 100%;
+    height: 100%;
+}
+
+button
+{
+    color: white;
+}
+
+#postlisting
+{
+    color: white;
 }
 
 *

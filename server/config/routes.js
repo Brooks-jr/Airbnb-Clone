@@ -7,7 +7,8 @@ var locations = require('../controllers/locations.js');
 var conversations = require('../controllers/conversations.js');
 var reservations = require('../controllers/reservations.js');
 var reviews = require('../controllers/reviews.js');
-var users = require('../controllers/users.js');
+// var users = require('../controllers/users.js');
+const users = require('../controllers/user_controller.js');
 
 // Model imports
 var Listing = mongoose.model('Listing');
@@ -31,6 +32,11 @@ module.exports = function (app) {
         users.logout(req, res);
     })
 
+    app.get('/logout', users.logout);
+    app.get('/currentUser', users.current);
+    app.post('/register', users.register);
+    app.post('/login', users.login);
+
     // Listings
     app.get('/api/currentUser/listings', function(req, res){
         listings.findAllUser(req, res);
@@ -48,6 +54,13 @@ module.exports = function (app) {
     app.get('/api/currentUser/reservations/:id', function(req, res) {
         reservations.find(req, res);
     })
+
+    // app.get('/listings', listings.all);
+    // app.get('/myListings', listings.allUserListings);
+    // app.post('/listings/search', listings.filter);
+    // app.post('/newListing', listings.add);
+    // app.post('/listing/edit', listenings.edit);
+    // app.post('/listing/destroy', listenings.destroy);
 
     // -----------------
     // - POST requests -

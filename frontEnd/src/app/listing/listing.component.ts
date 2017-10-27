@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listing',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListingComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  constructor(private _api: ApiService, private _router: Router) { }
+  
+    ngOnInit() {
+      this._api.getCurrentUser() 
+      .then((user) => { })
+      .catch((err) => { this._router.navigate(['/login']); });
+    }
+  
+    logout() {
+      this._api.logout()
+      .then(() => { this._router.navigate(['/login']); })
+      .catch((err) => { console.log(err); });
+    }
 }

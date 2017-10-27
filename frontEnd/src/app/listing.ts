@@ -4,4 +4,5 @@ export class Listing {
     public roomType: string = "";
     public price: number = null;
     public amountBeds: number = null;
+    public image: String = null;
 }

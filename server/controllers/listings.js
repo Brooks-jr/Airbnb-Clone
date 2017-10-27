@@ -11,7 +11,8 @@ module.exports = {
                 roomType: req.body.roomType,
                 price: req.body.price,
                 amountBeds: req.body.amountBeds,
-                _location: req.body.location
+                _location: req.body.location,
+                image: req.body.image
             });
             newListing._host = user._id;
             newListing.messages = [];

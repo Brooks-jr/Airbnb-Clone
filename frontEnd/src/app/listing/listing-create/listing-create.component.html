@@ -1,0 +1,126 @@
+<nav class="navbar fixed-top navbar-light bg-light">
+  <img src="http://logok.org/wp-content/uploads/2014/07/airbnb-logo-belo-880x628.png" class="d-inline-block align-top" width="110"
+    height="78.5" alt="airbnb logo">
+
+
+
+
+
+
+  <div *ngIf="curr">{{curr.name}}</div>
+</nav>
+<!-- ===================================================================== -->
+<div class="listingForm">
+
+  <div class="row">
+    <div id="listingleft" class="col-xs-6">
+      <h2 id="listingformwelcome">Hi, ~user.name~! Let's get started
+        <br> listing your space.</h2><hr>
+
+        <form (submit)="addListing()" #listingForm="ngForm">
+
+
+            <div class="form-group-lg row">  
+             
+              <div class="col-sm-9">
+               <p style="color: red" *ngIf='!title.valid && (title.dirty || title.touched)'>*Title is required</p>
+                <input type="text" name="title" required [(ngModel)]="newListing.title" #title="ngModel" class="form-control form-control-lg" placeholder="Title your listing">
+                
+              </div>
+            </div><br><br>
+            
+
+            <div class="form-group-lg row">
+            
+              <div class="col-sm-9">
+                <p style="color: red"  *ngIf='!description.valid && (description.dirty || description.touched)'>*Description is required</p>
+                <textarea  name="description" required [(ngModel)]="newListing.description" #description="ngModel" class="form-control form-control-lg" placeholder="Describe your listing..." rows="6"></textarea>
+              </div>
+            </div><br><br>
+            
+
+            <div class="form-group-lg row">
+               
+              <div class="col-sm-9">
+               <p style="color:red"   *ngIf='!roomType.valid && (roomType.dirty || roomType.touched)'>*Choose a room type</p>
+                <select name="roomType" required [(ngModel)]="newListing.roomType"
+                  #roomType="ngModel" class="form-control form-control-lg">
+                  <option>Room Type</option>
+                <option value="entire">Guest will have the Entire Place</option>
+                <option value="private">Guest will have a Private Room</option>
+                <option value="shared">Guest will have a Shared Room</option>
+                
+                </select>
+              </div>
+            </div><br><br>
+            
+            
+
+            <div class="form-group-lg row">
+             
+              <div class="col-sm-9">
+                <p style="color: red"  *ngIf='!price.valid && (price.dirty || price.touched)'>*Listing for free? You rule!</p>
+                <input type="number" name="price" required [(ngModel)]="newListing.price" #price="ngModel" minlength="1" class="form-control form-control-lg"
+                   placeholder="$ Listing Price"> <h4>-Per Night</h4>
+              </div>
+            </div><br><br>
+            
+            
+
+            <div class="form-group-lg row">
+             
+              <div class="col-sm-9">
+                 <p style="color: red"  *ngIf='!amountBeds.valid && (amountBeds.dirty || amountBeds.touched)'>*Amount of beds is required</p>
+                <input type="number" name="amountBeds" required [(ngModel)]="newListing.amountBeds" #amountBeds="ngModel"
+                 class="form-control form-control-lg" placeholder="How many beds?">
+              </div>
+            </div><br><br>
+            
+            <div class="form-group-lg row">
+            <div class="col-sm-9">
+              <p style="color: red"  *ngIf='!location.valid && (location.dirty || location.touched)'>*Location is required</p>
+
+               <input type="text" name="location" required [(ngModel)]="newListing._location" #location="ngModel" class="form-control form-control-lg" placeholder="Location of listing">
+           </div>
+         </div><br><br>
+
+<!-- =========================================================================== -->
+         <div id="listingImage">
+
+           <img [src]="newListing.image" alt=""><br>
+           <button class="btn btn-primary btn btn-danger"(click)="linkPhoto()">Add Image</button>
+
+        </div><br><br>
+<!-- =========================================================================== -->
+ 
+            
+
+            <input id="postlisting" type="submit" value="Post Listing" [disabled]="!listingForm.form.valid" class="btn btn-primary btn btn-danger" >
+          </form>
+
+    </div>
+    <!-- =========================================================================== -->
+
+    <div class="col-xs-6">
+      <img id="listingSide" src="http://www2.benjaminmoore.com/ShowPropertyServlet?nodePath=/BEA%20Repository/imagerepository/article_images_new/Interior/Living_Room/IA_int_neutral_living_03//zoom_image.content_en_CA"
+        alt="cozy home">
+    </div>
+  </div>
+</div>
+<hr>
+<!-- =================================================================================== -->
+
+<div id="overlay">
+  <div id="footer">
+    <a href="#">About Us</a>
+    <br>
+    <br>
+    <a href="#">Careers</a>
+    <br>
+    <br>
+    <a href="#">Policies</a>
+    <br>
+    <br>
+    <a href="#">Help</a>
+  </div>
+</div>
