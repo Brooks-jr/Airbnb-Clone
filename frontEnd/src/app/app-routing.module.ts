@@ -1,21 +1,20 @@
 // Module Imports
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LogRegComponent } from './log-reg/log-reg.component';
 
 // Component Imports
 import { AppComponent } from './app.component';
-import { LoginRegComponent } from './login-reg/login-reg.component';
+import { LogRegComponent } from './log-reg/log-reg.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { InnerSearchComponent } from './inner-search/inner-search.component';
+// import { InnerSearchComponent } from './inner-search/inner-search.component';
 import { UserDashComponent } from './user-dash/user-dash.component';
 import { PublicProfileComponent } from './public-profile/public-profile.component';
 import { LandingSearchComponent } from './landing-page/landing-search/landing-search.component';
 import { LandingQuickLinksComponent } from './landing-page/landing-quick-links/landing-quick-links.component';
 import { LandingListingsComponent } from './landing-page/landing-listings/landing-listings.component';
-import { InnerSearchSearchComponent } from './inner-search/inner-search-search/inner-search-search.component';
-import { InnerSearchMapComponent } from './inner-search/inner-search-map/inner-search-map.component';
-import { InnerSearchListingsComponent } from './inner-search/inner-search-listings/inner-search-listings.component';
+// import { InnerSearchSearchComponent } from './inner-search/inner-search-search/inner-search-search.component';
+// import { InnerSearchMapComponent } from './inner-search/inner-search-map/inner-search-map.component';
+// import { InnerSearchListingsComponent } from './inner-search/inner-search-listings/inner-search-listings.component';
 import { GuestDashComponent } from './user-dash/guest-dash/guest-dash.component';
 import { HostDashComponent } from './user-dash/host-dash/host-dash.component';
 import { ConversationsComponent } from './user-dash/conversations/conversations.component';
@@ -35,11 +34,18 @@ import { ListingInfoComponent } from './listing/listing-info/listing-info.compon
 import { ListingCreateComponent } from './listing/listing-create/listing-create.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/landing', pathMatch: 'full' },
+  // { path: '', pathMatch: 'full', component: AppComponent },
+  // { path: 'test', component: InnerSearchComponent, children: [
+    // { path: 'map', component: InnerSearchMapComponent },
+    // { path: 'listing', component: InnerSearchListingsComponent } 
+  // ]},
+  { path: '', pathMatch: 'full', component: LandingPageComponent  },
   { path: 'login', component: LogRegComponent },
-  { path: 'test', component: InnerSearchComponent },
-  { path: 'landing', component: LandingPageComponent },
-  { path: 'newListing', component: ListingCreateComponent }
+  // { path: 'search', component: InnerSearchMapComponent },
+  { path: 'homes', component: LandingPageComponent },
+  { path: 'listings', component: ListingComponent },
+  { path: 'listings/:id', component: ListingInfoComponent },
+  { path: 'account', component: UserDashComponent },
 ];
 
 @NgModule({

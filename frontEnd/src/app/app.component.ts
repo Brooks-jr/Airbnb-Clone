@@ -1,3 +1,6 @@
+import { MapsAPILoader } from '@agm/core';
+import {} from '@types/googlemaps';
+import { ViewChild, ElementRef, NgZone } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
 import { LocalApiService } from './local-api.service';
@@ -18,14 +21,14 @@ export class AppComponent {
   loggedIn;
 
   ngOnInit() {
-    this._localService.currentUser()
-    .then(user => {
-      if (user.firstName) {
-        this.loggedIn = true;
-      } else {
-        this.loggedIn = false;
-      }
-    })
+    // this._localService.currentUser()
+    // .then(user => {
+    //   if (user.firstName) {
+    //     this.loggedIn = true;
+    //   } else {
+    //     this.loggedIn = false;
+    //   }
+    // })
   }
 
   logout() {

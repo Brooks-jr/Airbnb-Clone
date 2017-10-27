@@ -4,22 +4,25 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import { NgDateRangePickerModule } from 'ng-daterangepicker';
+
+// Google Maps Stuff
+// import { AgmCoreModule } from '@agm/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Component imports
 import { AppComponent } from './app.component';
 import { LogRegComponent } from './log-reg/log-reg.component';
-import { NgDateRangePickerModule } from 'ng-daterangepicker';
-import { LoginRegComponent } from './login-reg/login-reg.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { InnerSearchComponent } from './inner-search/inner-search.component';
+// import { InnerSearchComponent } from './inner-search/inner-search.component';
 import { UserDashComponent } from './user-dash/user-dash.component';
 import { PublicProfileComponent } from './public-profile/public-profile.component';
 import { LandingSearchComponent } from './landing-page/landing-search/landing-search.component';
 import { LandingQuickLinksComponent } from './landing-page/landing-quick-links/landing-quick-links.component';
 import { LandingListingsComponent } from './landing-page/landing-listings/landing-listings.component';
-import { InnerSearchSearchComponent } from './inner-search/inner-search-search/inner-search-search.component';
-import { InnerSearchMapComponent } from './inner-search/inner-search-map/inner-search-map.component';
-import { InnerSearchListingsComponent } from './inner-search/inner-search-listings/inner-search-listings.component';
+// import { InnerSearchSearchComponent } from './inner-search/inner-search-search/inner-search-search.component';
+// import { InnerSearchMapComponent } from './inner-search/inner-search-map/inner-search-map.component';
+// import { InnerSearchListingsComponent } from './inner-search/inner-search-listings/inner-search-listings.component';
 import { GuestDashComponent } from './user-dash/guest-dash/guest-dash.component';
 import { HostDashComponent } from './user-dash/host-dash/host-dash.component';
 import { ConversationsComponent } from './user-dash/conversations/conversations.component';
@@ -40,25 +43,21 @@ import { ListingInfoComponent } from './listing/listing-info/listing-info.compon
 // Service Imports
 import { GoogleApiService } from './google-api.service';
 import { LocalApiService } from './local-api.service';
-import { ApiService } from './api.service';
-import { ListingCreateComponent } from './listing/listing-create/listing-create.component';
-import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogRegComponent,
-    LoginRegComponent,
     LandingPageComponent,
-    InnerSearchComponent,
+    // InnerSearchComponent,
     UserDashComponent,
     PublicProfileComponent,
     LandingSearchComponent,
     LandingQuickLinksComponent,
     LandingListingsComponent,
-    InnerSearchSearchComponent,
-    InnerSearchMapComponent,
-    InnerSearchListingsComponent,
+    // InnerSearchSearchComponent,
+    // InnerSearchMapComponent,
+    // InnerSearchListingsComponent,
     GuestDashComponent,
     HostDashComponent,
     ConversationsComponent,
@@ -79,13 +78,18 @@ import { FilterPipe } from './filter.pipe';
     FilterPipe
   ],
   imports: [
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'AIzaSyDCVcnQjMNJVY5DI_nQXsRsYJMGYs0VqYA',
+    //   libraries: ["places"]
+    // }),
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     NgDateRangePickerModule
   ],
-  providers: [GoogleApiService, LocalApiService, ApiService],
+  providers: [GoogleApiService, LocalApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

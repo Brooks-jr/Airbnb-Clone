@@ -3,7 +3,7 @@
 // Require statments
 var mongoose = require('mongoose');
 var listings = require('../controllers/listings.js');
-var locations = require('../controllers/locations.js');
+// var locations = require('../controllers/locations.js');
 var conversations = require('../controllers/conversations.js');
 var reservations = require('../controllers/reservations.js');
 var reviews = require('../controllers/reviews.js');
@@ -12,7 +12,7 @@ const users = require('../controllers/user_controller.js');
 
 // Model imports
 var Listing = mongoose.model('Listing');
-var Location = mongoose.model('Location');
+// var Location = mongoose.model('Location');
 var Conversation = mongoose.model('Conversation');
 var Reservation = mongoose.model('Reservation');
 var Review = mongoose.model('Review');
@@ -25,7 +25,7 @@ module.exports = function (app) {
 
     // Users
     app.get('/api/showUser', function(req, res){
-        users.getCurrent(req, res);
+        users.current(req, res);
     })
 
     app.get('/api/logout', function(req, res){
@@ -39,6 +39,10 @@ module.exports = function (app) {
 
     // Listings
     app.get('/api/currentUser/listings', function(req, res){
+        listings.findAll(req, res);
+    })
+
+    app.get('/api/currentUser/hostListings', function(req, res){
         listings.findAllUser(req, res);
     })
 
@@ -55,12 +59,18 @@ module.exports = function (app) {
         reservations.find(req, res);
     })
 
-    // app.get('/listings', listings.all);
-    // app.get('/myListings', listings.allUserListings);
-    // app.post('/listings/search', listings.filter);
-    // app.post('/newListing', listings.add);
-    // app.post('/listing/edit', listenings.edit);
-    // app.post('/listing/destroy', listenings.destroy);
+    //Conversations
+    app.get('/api/currentUser/inbox/guest', function(req, res){
+        conversations.showGuest(req, res);
+    })
+
+    app.get('/api/currentUser/inbox/host', function(req, res) {
+        conversations.showHost(req, res);
+    })
+
+    app.get('/api/currentUser/inbox/:id', function(req, res){
+        conversations.find(req, res);
+    })
 
     // -----------------
     // - POST requests -
@@ -111,11 +121,17 @@ module.exports = function (app) {
     })
 
     // Conversations
-    // app.post('/api/currentUser/listings/:id/newMessage', function(req, res))
+    app.post('/api/currentUser/listings/:id/guestMessage', function(req, res){
+        conversations.createAsGuest(req, res);
+    })
+
+    app.post('/api/currentUser/listings/:id/hostMessage', function(req, res){
+        conversations.createAsGuest(req, res);
+    })
 
     // Catch-all route
-    app.all('*', (req, res, next) => {
-        res.sendFile(path.resolve('./frontend/dist/index.html'));
-    })
+    // app.all("*", (req, res, next) => {
+    //     res.sendFile(path.resolve("./frontEnd/dist/index.html"));
+    // })
 
 }
